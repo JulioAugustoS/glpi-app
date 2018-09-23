@@ -17,6 +17,21 @@ const gs = StyleSheet.create({
         width: 150,
         height: 90,
         top: 60
+    },
+    formStyle: {
+        padding: 20
+    },
+    textCenter: {
+        textAlign: 'center'
+    },
+    itemCenter: {
+        alignItems: 'center',
+    },
+    bold: {
+        fontWeight: 'bold'
+    },
+    textBranco: {
+        color: '#FFF'
     }
 })
 
