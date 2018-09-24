@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Image, Text, TouchableOpacity, TextInput, Alert } from 'react-native'
+import { View, Image, Text, TouchableOpacity, TextInput, Alert, AsyncStorage } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import { Base64 } from 'js-base64';
 import { Actions } from 'react-native-router-flux'
@@ -42,7 +42,15 @@ class Login extends Component {
                 }
             })
             .then(res => {
-                Actions.Home({})
+                _setValue = async () => {
+                    try{
+                       await AsyncStorage.setItem('@token', res.data.session_token)
+                    }catch(e){
+                       console.log(e)
+                    }
+                }
+                console.log(AsyncStorage)
+                //Actions.Home({})
             })
             .catch(err => {
                 Alert.alert(
